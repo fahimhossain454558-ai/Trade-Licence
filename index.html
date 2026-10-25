@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="utf-8">
+    <title>Trade License Form Panel</title>
+    <!-- Google Fonts for World's Best Stylish & Luxury Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,600&family=Cormorant+Garamond:wght@600&family=Great+Vibes&family=Montserrat:wght@500;700&family=Oswald:wght@500&family=Sacramento&family=Bebas+Neue&family=Dancing+Script:wght@700&family=Lobster&family=Pacifico&family=Righteous&family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        @font-face {
+            font-family: 'Society Editor Regular';
+            src: local('Society Editor Regular'), local('SocietyEditor-Regular');
+        }
+        body { 
+            font-family: 'Cinzel', serif; 
+            padding: 40px 20px; 
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); 
+            color: #334155;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            transition: font-family 1s ease-in-out;
+        }
+        
+        /* Seljuk Empire Fixed Background Watermark Logo */
+        .form-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            opacity: 0.07;
+            pointer-events: none;
+            z-index: 0;
+            animation: watermarkPulse 8s infinite alternate ease-in-out;
+        }
+
+        @keyframes watermarkPulse {
+            0% { transform: translate(-50%, -50%) scale(1); opacity: 0.05; }
+            100% { transform: translate(-50%, -50%) scale(1.05); opacity: 0.09; }
+        }
+
+        .form-container { 
+            position: relative;
+            z-index: 1;
+            background: #ffffff; 
+            padding: 35px 40px; 
+            border-radius: 16px; 
+            max-width: 750px; 
+            margin: auto; 
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: containerGlow 5s infinite alternate ease-in-out;
+        }
+
+        @keyframes containerGlow {
+            0% { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 15px rgba(2, 132, 199, 0.1); }
+            100% { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(2, 132, 199, 0.3); }
+        }
+
+        .form-header-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .country-badge {
+            font-weight: bold;
+            font-size: 14px;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f1f5f9;
+            padding: 8px 16px;
+            border-radius: 24px;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .flag-box {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .form-group { margin-bottom: 16px; }
+        label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 13px; color: #475569; letter-spacing: 0.3px; }
+        
+        /* Custom Stylish File Upload Button */
+        .custom-file-upload {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #f8fafc;
+            color: #0284c7;
+            border: 1px dashed #0284c7;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .custom-file-upload:hover {
+            background: #e0f2fe;
+            border-color: #0284c7;
+        }
+
+        input[type="text"] { width: 100%; padding: 11px 14px; box-sizing: border-box; font-size: 14px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; transition: all 0.3s ease; color: #0f172a; }
+        input[type="text"]:focus { outline: none; border-color: #0284c7; background: #fff; box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15); }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #f8fafc;
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #0284c7;
+        }
+        .checkbox-group label {
+            margin-bottom: 0;
+            cursor: pointer;
+            color: #0f172a;
+            font-size: 14px;
+        }
+
+        .btn-save { background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; border: none; padding: 14px 20px; cursor: pointer; border-radius: 8px; font-size: 15px; width: 100%; margin-top: 20px; font-weight: 600; letter-spacing: 0.5px; box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3); transition: all 0.3s ease; }
+        .btn-save:hover { background: linear-gradient(135deg, #059669 0%, #047857 100%); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(16, 185, 129, 0.4); }
+        .btn-reset { background: #f1f5f9; color: #ef4444; border: 1px solid #fca5a5; padding: 12px 20px; cursor: pointer; border-radius: 8px; font-size: 14px; width: 100%; margin-top: 12px; font-weight: 600; transition: all 0.3s ease; }
+        .btn-reset:hover { background: #fee2e2; color: #dc2626; border-color: #f87171; }
+        h2 { text-align: center; color: #0f172a; margin-bottom: 20px; font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+        h3 { margin-top: 25px; border-bottom: 2px solid #e2e8f0; padding-bottom: 8px; color: #1e293b; font-size: 16px; font-weight: 600; }
+        .preview-img { margin-top: 8px; height: 70px; display: none; border-radius: 6px; border: 1px solid #cbd5e1; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+        
+        /* Infinite Rainbow Color Changing & Font Animation */
+        .creator-credit {
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.5px;
+            text-align: center;
+            margin-top: 30px;
+            text-transform: capitalize;
+            animation: rainbowColors 4s linear infinite, fontFadeAnimation 15s infinite;
+            transition: all 1s ease-in-out;
+        }
+
+        .creator-credit-top {
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(90deg, red, orange, yellow, green, cyan, blue, violet, red);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1.5px;
+            text-align: center;
+            margin-bottom: 25px;
+            text-transform: capitalize;
+            animation: rainbowColors 4s linear infinite, fontFadeAnimation 15s infinite;
+            transition: all 1s ease-in-out;
+        }
+
+        @keyframes rainbowColors {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fontFadeAnimation {
+            0% { opacity: 0.2; transform: scale(0.98); }
+            10% { opacity: 1; transform: scale(1); }
+            90% { opacity: 1; transform: scale(1); }
+            100% { opacity: 0.2; transform: scale(0.98); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Watermark Logo -->
+    <img src="seljuk_logo.png" class="form-watermark" alt="Watermark">
+
+    <div class="form-container">
+        <!-- Top Right Equal Size Flags Badge -->
+        <div class="form-header-top">
+            <div class="country-badge">
+                <div class="flag-box">
+                    <span>Bangladesh</span>
+                    <!-- Bangladesh Flag SVG -->
+                    <svg width="52" height="34" viewBox="0 0 600 400" style="border-radius: 3px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); vertical-align: middle;"><rect width="600" height="400" fill="#006a4e"/><circle cx="270" cy="200" r="120" fill="#f42a41"/></svg>
+                </div>
+                <span style="color: #94a3b8; margin: 0 4px;">|</span>
+                <div class="flag-box">
+                    <!-- Seljuk Empire Flag Image -->
+                    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Flag_of_Seljuk_Empire_%2816_Great_Turkic_Empires%29_2.svg" alt="Seljuk Flag" width="52" height="34" style="border-radius: 3px; box-shadow: 0 2px 4px rgba(0,0,0,0.3); vertical-align: middle;">
+                </div>
+            </div>
+        </div>
+
+        <!-- Ultra-Stylish Creator Credit at Top -->
+        <div class="creator-credit-top" id="creatorCreditTop">
+            This website is created by Ridhoan Hossain Fahim
+        </div>
+
+        <h2>ট্রেড লাইসেন্স ডাটা এন্ট্রি ফর্ম</h2>
+        <form id="licenseForm">
+            <h3>ছবি ও কিউআর কোড</h3>
+            <div class="form-group">
+                <label>QR Code আপলোড:</label>
+                <label for="qr_code_file" class="custom-file-upload">📁 QR Code সিলেক্ট করুন</label>
+                <input type="file" id="qr_code_file" accept="image/*" style="display: none;" onchange="previewImage(this, 'qr_prev')">
+                <img id="qr_prev" class="preview-img">
+            </div>
+            <div class="form-group">
+                <label>Profile Picture আপলোড:</label>
+                <label for="profile_pic_file" class="custom-file-upload">📁 Profile Picture সিলেক্ট করুন</label>
+                <input type="file" id="profile_pic_file" accept="image/*" style="display: none;" onchange="previewImage(this, 'prof_prev')">
+                <img id="prof_prev" class="preview-img">
+            </div>
+
+            <h3>সাধারণ তথ্য</h3>
+            <div class="form-group"><label>১। ব্যবসা প্রতিষ্ঠানের নাম:</label><input type="text" id="business_name"></div>
+            <div class="form-group"><label>২। প্রতিষ্ঠানের মালিকের নাম:</label><input type="text" id="owner_name"></div>
+            <div class="form-group"><label>৩। পিতা / স্বামীর নাম:</label><input type="text" id="father_name"></div>
+            <div class="form-group"><label>৪। মাতার নাম:</label><input type="text" id="mother_name"></div>
+            <div class="form-group"><label>৫। ব্যবসার প্রকৃতি:</label><input type="text" id="business_nature"></div>
+            <div class="form-group"><label>৬। ব্যবসার ধরণ:</label><input type="text" id="business_type"></div>
+            <div class="form-group"><label>৭। প্রতিষ্ঠানের ঠিকানা:</label><input type="text" id="business_address"></div>
+            <div class="form-group"><label>৮। অঞ্চল / বাজার শাখা:</label><input type="text" id="zone"></div>
+            <div class="form-group"><label>এলাকাঃ</label><input type="text" id="area"></div>
+            <div class="form-group"><label>ওয়ার্ড / মার্কেট:</label><input type="text" id="ward"></div>
+            <div class="form-group"><label>৯। এনআইডি/পাসপোর্ট/জন্ম নিব: নং:</label><input type="text" id="nid"></div>
+            <div class="form-group"><label>ফোনঃ</label><input type="text" id="phone"></div>
+            <div class="form-group"><label>বি আই এন নংঃ</label><input type="text" id="bin_no"></div>
+            <div class="form-group"><label>ই-মেইলঃ</label><input type="text" id="email"></div>
+            <div class="form-group"><label>১০। অর্থ বছর:</label><input type="text" id="fiscal_year" placeholder="YYYY-YYYY" oninput="this.value = this.value.replace(/[^0-9-]/g, '')"></div>
+            <div class="form-group"><label>ব্যবসা শুরুর তারিখ:</label><input type="text" id="start_date" placeholder="DD/MM/YYYY" oninput="this.value = this.value.replace(/[^0-9/]/g, '')"></div>
+            
+            <h3>মালিকের বর্তমান ঠিকানা</h3>
+            <div class="form-group"><label>হোল্ডিং নং:</label><input type="text" id="curr_holding" oninput="syncAddress()"></div>
+            <div class="form-group"><label>রোড নংঃ</label><input type="text" id="curr_road" oninput="syncAddress()"></div>
+            <div class="form-group"><label>গ্রাম / মহল্লা:</label><input type="text" id="curr_village" oninput="syncAddress()"></div>
+            <div class="form-group"><label>পোস্টকোড:</label><input type="text" id="curr_postcode" oninput="syncAddress()"></div>
+            <div class="form-group"><label>থানা:</label><input type="text" id="curr_thana" oninput="syncAddress()"></div>
+            <div class="form-group"><label>জেলা:</label><input type="text" id="curr_district" oninput="syncAddress()"></div>
+            <div class="form-group"><label>বিভাগঃ</label><input type="text" id="curr_division" oninput="syncAddress()"></div>
+
+            <h3>মালিকের স্থায়ী ঠিকানা</h3>
+            <div class="checkbox-group">
+                <input type="checkbox" id="same_address" onchange="toggleSameAddress()">
+                <label for="same_address">বর্তমান ও স্থায়ী ঠিকানা একই (টিক দিলে বর্তমান ঠিকানা স্থায়ী ঠিকানায় বসে যাবে)</label>
+            </div>
+            <div class="form-group"><label>হোল্ডিং নং:</label><input type="text" id="perm_holding"></div>
+            <div class="form-group"><label>রোড নংঃ</label><input type="text" id="perm_road"></div>
+            <div class="form-group"><label>গ্রাম / মহল্লা:</label><input type="text" id="perm_village"></div>
+            <div class="form-group"><label>পোস্টকোড:</label><input type="text" id="perm_postcode"></div>
+            <div class="form-group"><label>থানা:</label><input type="text" id="perm_thana"></div>
+            <div class="form-group"><label>জেলা:</label><input type="text" id="perm_district"></div>
+            <div class="form-group"><label>বিভাগঃ</label><input type="text" id="perm_division"></div>
+
+            <h3>লাইসেন্স সংক্রান্ত তথ্য</h3>
+            <div class="form-group"><label>লাইসেন্স নং:</label><input type="text" id="license_no" placeholder="লাইসেন্স নং খালি রাখলে অটো Randomly বসবে"></div>
+            <div class="form-group"><label>ইস্যুর তারিখ:</label><input type="text" id="issue_date" placeholder="DD/MM/YYYY ইস্যুর তারিখ খালি রাখলে অটো Randomly বসবে" oninput="this.value = this.value.replace(/[^0-9/]/g, '')"></div>
+            <div class="form-group"><label>ইস্যুর সময় (24-Hour Format):</label><input type="text" id="issue_time" placeholder="HH:MM:SS ইস্যুর সময় খালি রাখলে অটো Randomly বসবে" oninput="this.value = this.value.replace(/[^0-9:]/g, '')"></div>
+
+            <button type="button" class="btn-save" onclick="saveData()">সেভ করুন ও লাইসেন্স দেখুন</button>
+            <button type="button" class="btn-reset" onclick="resetForm()">সব তথ্য ও ছবি মুছে ফেলুন (Reset)</button>
+        </form>
+
+        <!-- Ultra-Stylish Creator Credit at Bottom -->
+        <div class="creator-credit" id="creatorCredit">
+            This website is created by Ridhoan Hossain Fahim
+        </div>
+    </div>
+
+    <script>
+        // Array of world's best stylish English fonts
+        const stylishFonts = [
+            "'Cinzel', serif",
+            "'Playfair Display', serif",
+            "'Cormorant Garamond', serif",
+            "'Great Vibes', cursive",
+            "'Montserrat', sans-serif",
+            "'Oswald', sans-serif",
+            "'Sacramento', cursive",
+            "'Bebas Neue', cursive",
+            "'Dancing Script', cursive",
+            "'Lobster', cursive",
+            "'Pacifico', cursive",
+            "'Righteous', cursive",
+            "'Cinzel Decorative', serif"
+        ];
+
+        let fontIndex = 0;
+
+        // Function to change font every 15 seconds automatically
+        setInterval(() => {
+            fontIndex = (fontIndex + 1) % stylishFonts.length;
+            document.body.style.fontFamily = stylishFonts[fontIndex];
+            document.getElementById('creatorCredit').style.fontFamily = stylishFonts[fontIndex];
+            document.getElementById('creatorCreditTop').style.fontFamily = stylishFonts[fontIndex];
+        }, 15000); // 15 seconds
+
+        let qrBase64 = "";
+        let profileBase64 = "";
+
+        function previewImage(input, previewId) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById(previewId).src = e.target.result;
+                    document.getElementById(previewId).style.display = "block";
+                    if(previewId === 'qr_prev') qrBase64 = e.target.result;
+                    if(previewId === 'prof_prev') profileBase64 = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function toggleSameAddress() {
+            const isChecked = document.getElementById('same_address').checked;
+            const permHolding = document.getElementById('perm_holding');
+            const permRoad = document.getElementById('perm_road');
+            const permVillage = document.getElementById('perm_village');
+            const permPostcode = document.getElementById('perm_postcode');
+            const permThana = document.getElementById('perm_thana');
+            const permDistrict = document.getElementById('perm_district');
+            const permDivision = document.getElementById('perm_division');
+
+            if (isChecked) {
+                permHolding.value = document.getElementById('curr_holding').value;
+                permRoad.value = document.getElementById('curr_road').value;
+                permVillage.value = document.getElementById('curr_village').value;
+                permPostcode.value = document.getElementById('curr_postcode').value;
+                permThana.value = document.getElementById('curr_thana').value;
+                permDistrict.value = document.getElementById('curr_district').value;
+                permDivision.value = document.getElementById('curr_division').value;
+
+                permHolding.readOnly = true;
+                permRoad.readOnly = true;
+                permVillage.readOnly = true;
+                permPostcode.readOnly = true;
+                permThana.readOnly = true;
+                permDistrict.readOnly = true;
+                permDivision.readOnly = true;
+                
+                permHolding.style.backgroundColor = '#e2e8f0';
+                permRoad.style.backgroundColor = '#e2e8f0';
+                permVillage.style.backgroundColor = '#e2e8f0';
+                permPostcode.style.backgroundColor = '#e2e8f0';
+                permThana.style.backgroundColor = '#e2e8f0';
+                permDistrict.style.backgroundColor = '#e2e8f0';
+                permDivision.style.backgroundColor = '#e2e8f0';
+            } else {
+                permHolding.readOnly = false;
+                permRoad.readOnly = false;
+                permVillage.readOnly = false;
+                permPostcode.readOnly = false;
+                permThana.readOnly = false;
+                permDistrict.readOnly = false;
+                permDivision.readOnly = false;
+
+                permHolding.style.backgroundColor = '#f8fafc';
+                permRoad.style.backgroundColor = '#f8fafc';
+                permVillage.style.backgroundColor = '#f8fafc';
+                permPostcode.style.backgroundColor = '#f8fafc';
+                permThana.style.backgroundColor = '#f8fafc';
+                permDistrict.style.backgroundColor = '#f8fafc';
+                permDivision.style.backgroundColor = '#f8fafc';
+            }
+        }
+
+        function syncAddress() {
+            if (document.getElementById('same_address').checked) {
+                toggleSameAddress();
+            }
+        }
+
+        function saveData() {
+            let issueDateVal = document.getElementById('issue_date').value.trim();
+            let issueTimeVal = document.getElementById('issue_time').value.trim();
+            let startDateVal = document.getElementById('start_date').value.trim();
+            const currentYear = new Date().getFullYear();
+
+            const banglaToEnglish = {'০':'0','১':'1','২':'2','৩':'3','৪':'4','৫':'5','৬':'6','৭':'7','৮':'8','৯':'9'};
+            let cleanStartDate = startDateVal.replace(/[০-৯]/g, d => banglaToEnglish[d]);
+            let startYearMatch = cleanStartDate.match(/\d{4}$/);
+
+            if (issueDateVal === "") {
+                let d = new Date();
+                let monthsAgo = Math.floor(Math.random() * 8) + 4;
+                d.setMonth(d.getMonth() - monthsAgo);
+                let day = String(d.getDate()).padStart(2, '0');
+                let month = String(d.getMonth() + 1).padStart(2, '0');
+                let year = d.getFullYear();
+                if (year >= 2027) year = 2026;
+                issueDateVal = day + '/' + month + '/' + year;
+            } else {
+                let cleanIssueDate = issueDateVal.replace(/[০-৯]/g, d => banglaToEnglish[d]);
+                let issueYearMatch = cleanIssueDate.match(/\d{4}$/);
+                if (issueYearMatch) {
+                    let issueYear = parseInt(issueYearMatch[0]);
+                    if (issueYear > currentYear) {
+                        alert('ইস্যুর তারিখের সাল চলতি বছর (' + currentYear + ') এর বেশি বা ২০২৭ হতে পারবে না!');
+                        return;
+                    }
+                }
+            }
+
+            if (issueTimeVal === "") {
+                let hh = String(Math.floor(Math.random() * 24)).padStart(2, '0');
+                let mm = String(Math.floor(Math.random() * 60)).padStart(2, '0');
+                let ss = String(Math.floor(Math.random() * 60)).padStart(2, '0');
+                issueTimeVal = hh + ':' + mm + ':' + ss;
+            }
+
+            let cleanIssueDateFinal = issueDateVal.replace(/[০-৯]/g, d => banglaToEnglish[d]);
+            let finalIssueYearMatch = cleanIssueDateFinal.match(/\d{4}$/);
+            let issueYearNum = finalIssueYearMatch ? parseInt(finalIssueYearMatch[0]) : currentYear;
+
+            if (startYearMatch) {
+                let startYear = parseInt(startYearMatch[0]);
+                if (startYear > issueYearNum) {
+                    alert('ব্যবসা শুরুর তারিখ কোনোভাবেই ইস্যুর তারিখের সালের বেশি হতে পারবে না!');
+                    return;
+                }
+                if (startYear > currentYear) {
+                    alert('ব্যবসা শুরুর তারিখ চলতি বছর (' + currentYear + ') এর বেশি হতে পারবে না!');
+                    return;
+                }
+            }
+
+            let rawLicenseNo = document.getElementById('license_no').value.trim();
+            let finalLicenseInput = rawLicenseNo;
+
+            if (rawLicenseNo !== "") {
+                let cleanNo = rawLicenseNo.replace(/TRAD\/DSCC\//gi, "").trim();
+                if (!rawLicenseNo.startsWith("TRAD/DSCC/")) {
+                    finalLicenseInput = "TRAD/DSCC/" + cleanNo + "/" + issueYearNum;
+                }
+            }
+
+            const data = {
+                qr_code: qrBase64,
+                profile_pic: profileBase64,
+                business_name: document.getElementById('business_name').value,
+                owner_name: document.getElementById('owner_name').value,
+                father_name: document.getElementById('father_name').value,
+                mother_name: document.getElementById('mother_name').value,
+                business_nature: document.getElementById('business_nature').value,
+                business_type: document.getElementById('business_type').value,
+                business_address: document.getElementById('business_address').value,
+                zone: document.getElementById('zone').value,
+                area: document.getElementById('area').value,
+                ward: document.getElementById('ward').value,
+                nid: document.getElementById('nid').value,
+                phone: document.getElementById('phone').value,
+                bin_no: document.getElementById('bin_no').value,
+                email: document.getElementById('email').value,
+                fiscal_year: document.getElementById('fiscal_year').value,
+                start_date: document.getElementById('start_date').value,
+                curr_holding: document.getElementById('curr_holding').value,
+                curr_road: document.getElementById('curr_road').value,
+                curr_village: document.getElementById('curr_village').value,
+                curr_postcode: document.getElementById('curr_postcode').value,
+                curr_thana: document.getElementById('curr_thana').value,
+                curr_district: document.getElementById('curr_district').value,
+                curr_division: document.getElementById('curr_division').value,
+                perm_holding: document.getElementById('perm_holding').value,
+                perm_road: document.getElementById('perm_road').value,
+                perm_village: document.getElementById('perm_village').value,
+                perm_postcode: document.getElementById('perm_postcode').value,
+                perm_thana: document.getElementById('perm_thana').value,
+                perm_district: document.getElementById('perm_district').value,
+                perm_division: document.getElementById('perm_division').value,
+                license_no: finalLicenseInput,
+                issue_date: issueDateVal,
+                issue_time: issueTimeVal
+            };
+            
+            localStorage.setItem('tradeLicenseData', JSON.stringify(data));
+            window.location.href = 'BDTradelicence.html';
+        }
+
+        function resetForm() {
+            if(confirm("Sob data ebong upload kora chobi muche felte chan?")) {
+                localStorage.removeItem('tradeLicenseData');
+                document.getElementById('licenseForm').reset();
+                document.getElementById('same_address').checked = false;
+                toggleSameAddress();
+                document.getElementById('qr_prev').style.display = 'none';
+                document.getElementById('prof_prev').style.display = 'none';
+                qrBase64 = "";
+                profileBase64 = "";
+                alert('Shob kichu clear kora hoyeche.');
+            }
+        }
+    </script>
+</body>
+</html>
